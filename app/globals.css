@@ -47,4 +47,26 @@ body {
   .glow-gold {
     text-shadow: 0 0 32px rgba(201, 162, 75, 0.4);
   }
+
+  .animate-marquee {
+    animation: marquee 45s linear infinite;
+  }
+
+  .animate-marquee-slow {
+    animation: marquee 70s linear infinite;
+  }
+
+  .marquee-pause:hover .animate-marquee,
+  .marquee-pause:hover .animate-marquee-slow {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
