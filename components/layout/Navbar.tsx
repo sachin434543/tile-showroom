@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { SITE } from '@/lib/site';
 
 const links = [
   { label: 'Collections', href: '#collections' },
@@ -19,15 +20,20 @@ export default function Navbar() {
       className="fixed inset-x-0 top-0 z-50"
     >
       <nav className="mx-auto mt-5 flex max-w-6xl items-center justify-between rounded-full px-6 py-3 glass md:px-10">
-        <a href="#" className="font-heading text-lg tracking-luxe text-gold">
-          ATELIER
+        <a href="#" className="flex flex-col leading-none">
+          <span className="font-heading text-base uppercase tracking-[0.25em] text-bronze md:text-lg">
+            {SITE.shortName}
+          </span>
+          <span className="mt-1 text-[8px] uppercase tracking-[0.35em] text-smoke">
+            Ceramics &amp; Hardware
+          </span>
         </a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-xs uppercase tracking-[0.2em] text-smoke transition-colors duration-300 hover:text-gold"
+                className="text-xs uppercase tracking-[0.2em] text-smoke transition-colors duration-300 hover:text-bronze"
               >
                 {link.label}
               </a>
@@ -36,7 +42,7 @@ export default function Navbar() {
         </ul>
         <a
           href="#contact"
-          className="rounded-full border border-gold/40 px-5 py-2 text-xs uppercase tracking-[0.2em] text-gold transition-all duration-300 hover:bg-gold hover:text-charcoal"
+          className="rounded-full border border-gold/50 px-5 py-2 text-xs uppercase tracking-[0.2em] text-bronze transition-all duration-300 hover:bg-gold hover:text-white hover:shadow-glow-gold"
         >
           Book a Visit
         </a>

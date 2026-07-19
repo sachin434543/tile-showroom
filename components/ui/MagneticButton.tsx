@@ -40,9 +40,8 @@ export default function MagneticButton({
       className={cn(
         'rounded-full px-8 py-3.5 text-sm uppercase tracking-[0.2em] transition-shadow duration-500',
         variant === 'solid' &&
-          'bg-gradient-to-r from-bronze via-gold to-gold-soft text-charcoal hover:shadow-glow-gold',
-        variant === 'outline' &&
-          'glass text-ivory hover:border-gold/60 hover:shadow-glow-gold',
+          'bg-gradient-to-r from-bronze via-gold to-gold-soft text-white hover:shadow-glow-gold',
+        variant === 'outline' && 'glass text-charcoal hover:border-gold/60 hover:shadow-glow-gold',
         className,
       )}
       {...props}

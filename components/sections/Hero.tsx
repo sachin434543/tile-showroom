@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import MagneticButton from '@/components/ui/MagneticButton';
+import { SITE } from '@/lib/site';
 
 const TileWall = dynamic(() => import('@/components/three/TileWall'), { ssr: false });
 
@@ -27,8 +28,8 @@ export default function Hero() {
       </div>
 
       {/* Cinematic gradient overlays */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-charcoal/70 via-transparent to-charcoal" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(13,13,15,0.85)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pearl/80 via-transparent to-pearl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(250,248,243,0.85)_100%)]" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
@@ -36,12 +37,12 @@ export default function Hero() {
           initial={{ opacity: 0, letterSpacing: '0.2em' }}
           animate={{ opacity: 1, letterSpacing: '0.45em' }}
           transition={{ duration: 1.4, delay: 2.3, ease: 'easeOut' }}
-          className="mb-6 text-[11px] uppercase text-gold"
+          className="mb-6 text-[11px] uppercase text-bronze"
         >
-          Luxury Tile Atelier
+          {SITE.name}
         </motion.p>
 
-        <h1 className="font-heading text-5xl leading-[1.05] text-ivory md:text-7xl lg:text-8xl">
+        <h1 className="font-heading text-5xl leading-[1.05] text-charcoal md:text-7xl lg:text-8xl">
           {headlineWords.map((word, i) => (
             <span key={word} className="inline-block overflow-hidden align-top">
               <motion.span
@@ -63,7 +64,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 3.2, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 max-w-xl text-base font-light leading-relaxed text-smoke md:text-lg"
         >
-          Premium tiles crafted for timeless homes.
+          {SITE.subTagline} Serving timeless homes since {SITE.foundedYear}.
         </motion.p>
 
         <motion.div
@@ -87,7 +88,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2 text-gold/70"
+          className="flex flex-col items-center gap-2 text-bronze/80"
         >
           <span className="text-[10px] uppercase tracking-luxe">Scroll</span>
           <ChevronDown size={16} />

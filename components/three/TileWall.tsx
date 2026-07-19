@@ -42,10 +42,10 @@ function Tiles() {
     <instancedMesh ref={meshRef} args={[undefined, undefined, COUNT]}>
       <boxGeometry args={[1, 1, 0.08]} />
       <meshStandardMaterial
-        color="#1a1a1c"
-        metalness={0.85}
-        roughness={0.25}
-        envMapIntensity={1.2}
+        color="#efe9dd"
+        metalness={0.55}
+        roughness={0.28}
+        envMapIntensity={1.1}
       />
     </instancedMesh>
   );
@@ -59,7 +59,7 @@ function MovingLight() {
     lightRef.current?.position.set(Math.sin(t * 0.4) * 6, Math.cos(t * 0.3) * 3, 3.5);
   });
 
-  return <pointLight ref={lightRef} color="#d4af37" intensity={40} distance={14} />;
+  return <pointLight ref={lightRef} color="#c9a24b" intensity={35} distance={14} />;
 }
 
 function CameraRig() {
@@ -78,12 +78,13 @@ export default function TileWall() {
       camera={{ position: [0, 0, 8.5], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
-      <ambientLight intensity={0.25} />
+      <ambientLight intensity={0.9} />
+      <directionalLight position={[4, 6, 6]} color="#fff6e0" intensity={1.4} />
       <MovingLight />
-      <pointLight position={[-6, -3, 4]} color="#8c6a3f" intensity={18} distance={16} />
+      <pointLight position={[-6, -3, 4]} color="#8c6a3f" intensity={16} distance={16} />
       <Tiles />
-      <Sparkles count={90} scale={[14, 8, 4]} size={2.2} speed={0.25} color="#e8d5a3" />
-      <Environment preset="city" />
+      <Sparkles count={90} scale={[14, 8, 4]} size={2.4} speed={0.25} color="#a67c00" />
+      <Environment preset="apartment" />
       <CameraRig />
     </Canvas>
   );

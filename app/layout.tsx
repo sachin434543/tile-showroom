@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import SmoothScroll from '@/components/providers/SmoothScroll';
 import Cursor from '@/components/ui/Cursor';
 import Preloader from '@/components/ui/Preloader';
+import { SITE } from '@/lib/site';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -19,27 +20,35 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Atelier Tiles — Tiles That Tell Stories',
-    template: '%s — Atelier Tiles',
+    default: `${SITE.name} — ${SITE.tagline}`,
+    template: `%s — ${SITE.name}`,
   },
-  description:
-    'Premium tiles crafted for timeless homes. Explore a curated collection of luxury bathroom, kitchen, flooring and designer wall tiles.',
-  keywords: ['luxury tiles', 'premium tiles', 'tile showroom', 'designer tiles', 'flooring'],
+  description: `${SITE.subTagline} Explore a curated collection of luxury bathroom, kitchen, flooring and designer wall tiles at ${SITE.name}, ${SITE.address}.`,
+  keywords: [
+    'luxury tiles',
+    'premium tiles',
+    'tile showroom',
+    'designer tiles',
+    'flooring',
+    'ceramics',
+    'Puttur',
+    SITE.name,
+  ],
   openGraph: {
-    title: 'Atelier Tiles — Tiles That Tell Stories',
-    description: 'Premium tiles crafted for timeless homes.',
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.subTagline,
     type: 'website',
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0d0d0f',
+  themeColor: '#faf8f3',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="bg-charcoal font-body text-ivory antialiased">
+      <body className="bg-pearl font-body text-charcoal antialiased">
         <Preloader />
         <Cursor />
         <SmoothScroll>{children}</SmoothScroll>
