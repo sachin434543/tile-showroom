@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+  color: #f5f2ea;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#8c6a3f, #d4af37);
+  border-radius: 999px;
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/10 bg-white/5 shadow-glass backdrop-blur-xl;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(120deg, #e8d5a3 0%, #d4af37 45%, #8c6a3f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-gold {
+    text-shadow: 0 0 32px rgba(212, 175, 55, 0.45);
+  }
+}
