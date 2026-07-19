@@ -1,8 +1,13 @@
 import Reveal from '@/components/ui/Reveal';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { categories } from '@/lib/data';
+import { categories as staticCategories } from '@/lib/data';
+import type { Category } from '@/lib/types';
 
-export default function Categories() {
+type CategoriesProps = {
+  categories?: Category[];
+};
+
+export default function Categories({ categories = staticCategories }: CategoriesProps) {
   return (
     <section id="categories" className="px-6 py-28 md:py-36">
       <div className="mx-auto max-w-7xl">

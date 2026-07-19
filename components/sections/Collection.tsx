@@ -6,10 +6,25 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Reveal from '@/components/ui/Reveal';
 import TileCard from '@/components/tiles/TileCard';
 import TileModal from '@/components/tiles/TileModal';
-import { brands, categories, finishes, tiles } from '@/lib/data';
-import type { Tile } from '@/lib/types';
+import {
+  brands as staticBrands,
+  categories as staticCategories,
+  finishes,
+  tiles as staticTiles,
+} from '@/lib/data';
+import type { Category, Tile } from '@/lib/types';
 
-export default function Collection() {
+type CollectionProps = {
+  tiles?: Tile[];
+  categories?: Category[];
+  brands?: string[];
+};
+
+export default function Collection({
+  tiles = [...staticTiles],
+  categories = [...staticCategories],
+  brands = [...staticBrands],
+}: CollectionProps) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('all');
   const [finish, setFinish] = useState('all');
@@ -32,7 +47,7 @@ export default function Collection() {
         return false;
       return true;
     });
-  }, [query, category, finish, brand]);
+  }, [tiles, query, category, finish, brand]);
 
   const selectClass =
     'glass rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.15em] text-charcoal outline-none transition-colors hover:border-gold/60';

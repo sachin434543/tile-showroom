@@ -15,6 +15,12 @@ export default function Contact() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    fetch('/api/inquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, message }),
+    }).catch(() => undefined);
+
     const text = `Hello ${SITE.shortName}! I am ${name} (${phone}). ${message}`;
     if (SITE.whatsapp) {
       window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');

@@ -1,6 +1,10 @@
-import { brands } from '@/lib/data';
+import { brands as staticBrands } from '@/lib/data';
 
-export default function Brands() {
+type BrandsProps = {
+  brands?: string[];
+};
+
+export default function Brands({ brands = [...staticBrands] }: BrandsProps) {
   const doubled = [...brands, ...brands];
 
   return (

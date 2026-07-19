@@ -8,18 +8,27 @@ import Gallery from '@/components/sections/Gallery';
 import Testimonials from '@/components/sections/Testimonials';
 import Brands from '@/components/sections/Brands';
 import Contact from '@/components/sections/Contact';
+import { getCatalog } from '@/lib/catalog';
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const catalog = await getCatalog();
+
   return (
     <main>
       <Navbar />
       <Hero />
       <About />
-      <Categories />
-      <Collection />
+      <Categories categories={catalog.categories} />
+      <Collection
+        tiles={catalog.tiles}
+        categories={catalog.categories}
+        brands={catalog.brands}
+      />
       <Gallery />
-      <Testimonials />
-      <Brands />
+      <Testimonials testimonials={catalog.testimonials} />
+      <Brands brands={catalog.brands} />
       <Contact />
       <Footer />
     </main>

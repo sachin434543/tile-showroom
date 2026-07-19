@@ -1,7 +1,12 @@
 import SectionHeading from '@/components/ui/SectionHeading';
-import { testimonials } from '@/lib/data';
+import { testimonials as staticTestimonials } from '@/lib/data';
+import type { Testimonial } from '@/lib/types';
 
-export default function Testimonials() {
+type TestimonialsProps = {
+  testimonials?: Testimonial[];
+};
+
+export default function Testimonials({ testimonials = staticTestimonials }: TestimonialsProps) {
   const doubled = [...testimonials, ...testimonials];
 
   return (
